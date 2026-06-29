@@ -2496,3 +2496,13 @@ section {
     font-weight: 700;
   }
 }
+
+@media (min-width: 901px) {
+  .objectives__statement {
+    width: 100%;
+    max-width: none;
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
