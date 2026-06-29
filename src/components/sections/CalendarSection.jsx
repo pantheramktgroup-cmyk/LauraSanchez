@@ -35,8 +35,8 @@ export function CalendarSection() {
           <div className="calendar__embed">
             <iframe
               src={calendar.iframeSrc}
-              style={{ width: "100%", border: "none", overflow: "hidden" }}
-              scrolling="no"
+              style={{ width: "100%", border: "none" }}
+              scrolling="yes"
               id={calendar.iframeId}
               title="Calendario Laura Sánchez"
               className="calendar-iframe"

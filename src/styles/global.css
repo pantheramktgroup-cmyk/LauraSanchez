@@ -1499,7 +1499,7 @@ section {
   background: var(--white);
   border: 1px solid var(--line-gold);
   border-radius: var(--radius);
-  overflow: hidden;
+  overflow: visible;
   box-shadow: var(--shadow-soft), var(--shadow-gold);
 }
 
@@ -1510,6 +1510,7 @@ section {
   display: flex;
   flex-direction: column;
   gap: 1.1rem;
+  border-radius: var(--radius) 0 0 var(--radius);
 }
 
 .calendar__avatar {
@@ -1541,13 +1542,18 @@ section {
 .calendar__embed {
   padding: 1rem;
   background: var(--white);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  overflow: visible;
 }
 
 .calendar-iframe {
-  min-height: 780px;
+  min-height: 1050px;
+  height: 1050px;
   width: 100%;
   border-radius: 18px;
   background: #fff;
+  display: block;
+  border: 0;
 }
 
 /* ============================================================
@@ -1914,6 +1920,11 @@ section {
 
   .calendar__card {
     grid-template-columns: 1fr;
+    overflow: visible;
+  }
+
+  .calendar__side {
+    border-radius: var(--radius) var(--radius) 0 0;
   }
 }
 
@@ -2202,6 +2213,7 @@ section {
   .calendar__embed {
     padding: 0.65rem;
     overflow: visible;
+    border-radius: 0 0 var(--radius) var(--radius);
   }
 
   .site-footer {
@@ -2218,8 +2230,8 @@ section {
   }
 
   .calendar-iframe {
-    min-height: 1220px;
-    height: 1220px;
+    min-height: 1400px;
+    height: 1400px;
   }
 
   .objectives__intro {
