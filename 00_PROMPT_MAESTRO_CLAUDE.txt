@@ -1,0 +1,141 @@
+# PROMPT MAESTRO PARA CLAUDE — LANDING LAURA SÁNCHEZ COACH
+
+Necesito que crees desde cero una landing completa para Laura Sánchez Coach.
+
+La página actual existe solo como referencia de estructura y copy, pero este proyecto nuevo NO tiene componentes anteriores, NO tiene branding armado y NO tiene copy cargado. Tenés que construir todo desde cero, usando React/Vite, CSS responsive, GSAP y los assets locales indicados.
+
+## Objetivo general
+
+Crear una landing premium, minimalista y muy llamativa para vender/agendar una llamada de “Coaching de Alto Impacto” orientado a dueños de negocio, emprendedores y empresarios que son cuello de botella de su empresa.
+
+Debe sentirse premium, minimalista, ejecutiva, moderna, elegante, clara, con CTAs fuertes, con mucho movimiento sofisticado y mucho mejor diseñada que la página actual. No debe sentirse infantil ni sobrecargada.
+
+## Archivos de contexto que tenés que leer antes de tocar código
+
+Leé estos archivos `.txt`:
+
+1. `01_COPY_LAURA_SANCHEZ.txt`
+2. `02_ESTRUCTURA_SECCIONES.txt`
+3. `03_DISEÑO_ANIMACIONES.txt`
+4. `04_ASSETS_INTEGRACIONES.txt`
+5. `05_CHECKLIST_VALIDACION.txt`
+
+Usalos como fuente de verdad.
+
+## Reglas importantes
+
+- Hacer la página completa en una sola implementación.
+- Crear todos los componentes necesarios.
+- Mantener el copy separado del JSX en un archivo tipo `src/content/lauraCopy.js`.
+- Mantener los datos de logos, estadísticas, situaciones, pasos, objetivos y FAQs en arrays/objetos reutilizables.
+- No hardcodear todo dentro de JSX.
+- Usar GSAP + ScrollTrigger para animaciones.
+- Respetar `prefers-reduced-motion`.
+- No usar emojis.
+- No usar lorem ipsum ni placeholders.
+- No finalizar hasta que compile correctamente.
+
+## Stack sugerido
+
+Si el proyecto ya está creado con Vite/React, usar esa base.
+
+Si no existe estructura, crear:
+
+```txt
+src/
+  main.jsx
+  App.jsx
+  content/
+    lauraCopy.js
+  components/
+    layout/
+      PageShell.jsx
+      Header.jsx
+      Footer.jsx
+    sections/
+      Hero.jsx
+      LogoMarquee.jsx
+      Stats.jsx
+      Situations.jsx
+      WhatIs.jsx
+      HowItWorks.jsx
+      Objectives.jsx
+      CalendarSection.jsx
+      AboutLaura.jsx
+      FAQ.jsx
+    ui/
+      Button.jsx
+      SectionTitle.jsx
+      PremiumCard.jsx
+  hooks/
+    useReducedMotion.js
+    useGsapReveal.js
+  styles/
+    global.css
+```
+
+Si Tailwind ya está instalado, podés usarlo. Si no está instalado, no pierdas tiempo: usá CSS global bien organizado en `src/styles/global.css`.
+
+## Resultado esperado
+
+Una única landing responsive en `/` con:
+
+1. Hero con Laura a la derecha y fondo recreado.
+2. Carrusel automático de logos.
+3. Estadísticas.
+4. Situaciones/problemas.
+5. Qué es el Coaching de Alto Impacto.
+6. Cómo funciona.
+7. Objetivos del programa.
+8. Calendario embebido.
+9. Soy Laura Sánchez.
+10. Preguntas frecuentes.
+11. Footer con redes sociales.
+12. Script de tracking externo agregado correctamente.
+
+## CTA
+
+Todos los botones deben decir:
+
+```txt
+AGENDAR LLAMADA
+```
+
+Todos deben llevar con smooth scroll a la sección del calendario.
+
+## Estilo visual base
+
+Usar una estética minimalista premium:
+
+- Fondo principal claro cálido/off-white.
+- Secciones oscuras puntuales para contraste.
+- Amarillo/dorado como color de acción.
+- Tipografía display fuerte para títulos.
+- Body muy legible.
+- Botones grandes, muy visibles, con hover.
+- Cards con bordes finos, sombras suaves, glow amarillo, y microinteracciones.
+- Mucha animación de entrada con GSAP, pero elegante.
+
+## Responsive
+
+Mobile tiene que estar muy cuidado:
+
+- Hero en una sola columna.
+- Imagen de Laura como apoyo visual, no debe tapar el texto.
+- CTAs centrados.
+- Cards en 1 columna.
+- Logos más chicos.
+- Calendario usable.
+- FAQ legible.
+- Nada debe generar scroll horizontal.
+
+## Validación final obligatoria
+
+Al terminar ejecutar:
+
+```bash
+npm run lint
+npm run build
+```
+
+Además revisar visualmente desktop, tablet y mobile. Validar que no haya scroll horizontal, que todos los botones scrolleen al calendario, que el calendario cargue, que el tracking externo esté cargado, que los 26 logos estén en el carrusel y que las imágenes de Laura se usen correctamente.

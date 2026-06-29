@@ -1,0 +1,248 @@
+# 03_DISEÑO_ANIMACIONES
+
+Este archivo define el sistema visual, responsive y animaciones de la landing.
+
+---
+
+# Sistema visual
+
+La página debe sentirse más premium y minimalista que la página actual.
+
+## Paleta
+
+Usar variables CSS:
+
+```css
+:root {
+  --bg: #f7f3ea;
+  --bg-soft: #fffaf0;
+  --ink: #111111;
+  --ink-soft: #2a2926;
+  --muted: #6d6a63;
+  --dark: #111111;
+  --dark-2: #1d1d1b;
+  --gold: #ffd95a;
+  --gold-strong: #ffcc18;
+  --gold-soft: rgba(255, 217, 90, 0.18);
+  --line: rgba(17, 17, 17, 0.12);
+  --white: #ffffff;
+}
+```
+
+Respetar fondo cálido, negro/grafito y amarillo/dorado como color principal. Nada de rojo.
+
+## Tipografías
+
+Usar Google Fonts:
+
+* Display/headlines: `Bebas Neue` o `Anton`.
+* Body/UI: `Montserrat` o `Inter`.
+
+Recomendado:
+
+```css
+--font-display: "Bebas Neue", "Anton", sans-serif;
+--font-body: "Montserrat", "Inter", system-ui, sans-serif;
+```
+
+Headlines grandes, condensadas, uppercase y con letter-spacing leve. Body legible.
+
+---
+
+# Botones
+
+Todos los CTAs deben ser muy llamativos.
+
+Estilo:
+
+* Fondo amarillo/dorado.
+* Texto blanco o negro, elegir el mayor contraste.
+* Borde amarillo fuerte.
+* Border-radius 16px o pill.
+* Padding grande.
+* Font-weight 800.
+* Uppercase.
+* Letter-spacing.
+* Sombra/glow amarillo.
+* Flecha o icono SVG simple a la derecha.
+
+Hover desktop:
+
+* TranslateY(-4px).
+* Scale(1.02).
+* Glow más fuerte.
+* Flecha se mueve 4px a la derecha.
+* Background ligeramente más intenso.
+* Transición 220ms cubic-bezier.
+
+Animación de entrada GSAP:
+
+* Los botones entran rápido desde la izquierda.
+* Se pasan un poco y rebotan suavemente a su lugar.
+* Usar ease tipo `back.out(1.8)` o `elastic.out(1, 0.55)`.
+* En mobile reducir distancia para no generar overflow.
+
+---
+
+# Cards
+
+Cards premium:
+
+* Fondo blanco cálido o negro suave según sección.
+* Borde 1px con amarillo/transparente.
+* Border-radius 22px.
+* Box-shadow suave.
+* Hover: translateY(-6px), borde amarillo más visible, glow sutil, fondo apenas más luminoso.
+* Algunas cards pueden tener borde animado con pseudo-elemento o conic-gradient si no afecta performance.
+
+---
+
+# Animaciones GSAP
+
+Usar `gsap` y `ScrollTrigger`.
+
+## Setup
+
+* Registrar ScrollTrigger una sola vez.
+* Respetar `prefers-reduced-motion`.
+* Limpiar contexts en React si usás `gsap.context`.
+
+## Animaciones deseadas
+
+Hero:
+
+* Background glow aparece suave.
+* Headline entra por líneas: opacity 0 → 1, y 70 → 0, clip-path reveal, stagger 0.08.
+* Subheadline entra después.
+* CTA entra con rebote.
+* Imagen Laura entra desde derecha: x 80, opacity 0, scale 1.04 → 1, ease power3.out.
+* Parallax suave de imagen en scroll.
+
+Logos:
+
+* Marquee infinito con CSS o GSAP.
+* Hover pausa o ralentiza.
+
+Stats:
+
+* Cada stat entra con y 50, opacity 0.
+* Números pueden hacer count-up. Si no, reveal simple.
+* Stagger.
+
+Situaciones:
+
+* Card entra con scale 0.96, y 60.
+* Items entran escalonados.
+* Íconos X/check hacen pop.
+
+Qué es:
+
+* Título reveal.
+* Texto por párrafos.
+* Imagen con parallax leve.
+* CTA rebote.
+
+Cómo funciona:
+
+* Timeline/steps entran uno por uno.
+* Números grandes entran con scale 1.2 → 1 y opacity.
+* Cards alternadas desde izquierda/derecha.
+* En mobile todas desde abajo.
+
+Objetivos:
+
+* 3 cards entran con stagger.
+* Al hover, número aumenta opacidad y se desplaza muy leve.
+
+Calendario:
+
+* Card contenedora entra con scale 0.98 y glow.
+* Iframe fade-in.
+
+About:
+
+* Imagen entra desde izquierda.
+* Bullets entran escalonados.
+* CTA rebote.
+
+FAQ:
+
+* Acordeones entran con stagger.
+* Apertura/cierre suave.
+
+Footer:
+
+* Redes entran con stagger.
+* Hover con glow amarillo.
+
+---
+
+# Cursor / fondo interactivo
+
+Agregar un efecto sutil en desktop:
+
+* Luz radial amarilla suave siguiendo el mouse.
+* No debe molestar lectura.
+* No usar rojo.
+* No usar distorsión excesiva.
+* Implementar con CSS variables `--mouse-x`, `--mouse-y` en un pseudo/fixed overlay.
+* Desactivar en mobile o reducir opacidad.
+
+Ejemplo conceptual:
+
+```css
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    520px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    rgba(255, 217, 90, 0.13),
+    transparent 45%
+  );
+  z-index: 0;
+}
+```
+
+Cuidar que el overlay no tape contenido.
+
+---
+
+# Responsive
+
+Breakpoints:
+
+* Desktop: 1024px+
+* Tablet: 768px-1023px
+* Mobile: <768px
+
+Mobile reglas:
+
+* No scroll horizontal.
+* `overflow-x: hidden`.
+* Hero: texto centrado o left con buen margen.
+* La foto no debe tapar el texto.
+* Botones centrados y máximo 320px.
+* Cards 1 columna.
+* Logo marquee altura compacta.
+* FAQ legible.
+* Calendario con altura suficiente.
+
+Desktop:
+
+* Usar contenedores max-width 1180/1240px.
+* Secciones con buen aire, pero sin espacios excesivos.
+* Hero debe verse completo en primera pantalla.
+
+---
+
+# Accesibilidad y performance
+
+* Usar botones reales.
+* Alt text descriptivo.
+* Lazy load para imágenes que no sean hero.
+* `decoding="async"`.
+* Evitar animaciones pesadas en mobile.
+* No cargar múltiples veces scripts externos.
+* No romper build.

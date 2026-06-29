@@ -1,0 +1,320 @@
+# 02_ESTRUCTURA_SECCIONES
+
+Crear la landing con esta estructura exacta.
+
+---
+
+## 0. Header / navegación mínima
+
+Desktop:
+
+- Header flotante, transparente al inicio.
+- Al hacer scroll, fondo blur oscuro o claro según sección.
+- Wordmark de texto: `Laura Sánchez Coach`.
+- Links internos:
+  - Programa
+  - Metodología
+  - Objetivos
+  - Agendar
+- Botón pequeño: `AGENDAR LLAMADA`.
+
+Mobile:
+
+- Header simple.
+- Wordmark.
+- Botón `AGENDAR`.
+- No hace falta menú hamburguesa si complica, pero sí debe quedar limpio.
+
+---
+
+## 1. Hero
+
+Debe ocupar aproximadamente 100vh en desktop.
+
+Layout desktop:
+
+- Texto a la izquierda/centro.
+- Imagen `Laura.jpg` a la derecha, apoyada en el borde inferior.
+- Fondo recreado con gradiente gris/negro/off-white para que la foto no tenga que estirarse.
+- La imagen no debe ocupar toda la pantalla ni deformarse.
+- Usar `object-fit: contain`.
+- Usar `mask-image` o gradientes overlay para integrar los bordes de la foto con el fondo.
+- El foco visual debe ser Laura + headline.
+
+Elementos:
+
+- Eyebrow pequeño opcional: `Coaching de Alto Impacto para dueños de negocio`.
+- Headline principal con destacados amarillos.
+- Subheadline.
+- CTA principal.
+- Microcopy debajo del CTA opcional: `Diagnóstico estratégico · 30 min · Sin cargo`.
+
+Diseño:
+
+- Hero sofisticado.
+- Mucho contraste.
+- Botón amarillo/dorado muy visible.
+- No usar emojis.
+
+---
+
+## 2. Carrusel de logos
+
+Ubicación: inmediatamente después del hero.
+
+Contenido:
+
+- 26 logos desde `/assets/testimonials/logo_1.png` hasta `/assets/testimonials/logo_26.png`.
+- Carrusel/marquee horizontal infinito.
+- Duplicar array visualmente para loop perfecto.
+
+Estilo:
+
+- Fondo off-white o blanco cálido.
+- Logos en grayscale.
+- Opacidad 0.45 a 0.7.
+- Hover: opacidad 1, grayscale 0, leve escala.
+- Velocidad lenta y elegante.
+- Pausar o ralentizar en hover.
+
+---
+
+## 3. Estadísticas
+
+Layout desktop:
+
+- 4 stats en fila.
+- Separadores finos amarillos arriba y abajo.
+- Números grandes en amarillo.
+- Labels en gris oscuro.
+
+Mobile:
+
+- 2 columnas o 1 columna según espacio.
+- Nada debe romper ni generar scroll horizontal.
+
+Stats:
+
+- 94% / Clientes Satisfechos
+- +300 / Líderes de Negocios
+- +15 / Años de Experiencia
+- +50 / Industrias Diferentes
+
+Animación:
+
+- Contador animado al entrar en viewport.
+- Si es complejo, fade/slide fuerte con GSAP.
+
+---
+
+## 4. Situaciones
+
+Título grande:
+
+`SI ALGUNA VEZ PASASTE POR ALGUNA DE ESTAS SITUACIONES:`
+
+Layout desktop:
+
+- Card grande con dos columnas.
+- Izquierda: problemas con ícono X rojo.
+- Derecha: deseos con ícono check verde o amarillo.
+- Borde fino amarillo.
+- Fondo off-white con card blanca/cream o fondo oscuro con card dark; elegir lo que quede más premium.
+- Cierre centrado debajo: `Entonces este programa es exactamente lo que necesitas...`
+
+Mobile:
+
+- Columna única.
+- Primero dolores, luego deseos.
+- Espaciado compacto pero legible.
+
+Animaciones:
+
+- Título entra con reveal.
+- Cada item entra escalonado.
+- Card tiene hover sutil.
+
+---
+
+## 5. Qué es el Coaching de Alto Impacto
+
+Título:
+
+`¿QUÉ ES EL COACHING DE ALTO IMPACTO?`
+
+Layout desktop:
+
+- Texto a la izquierda.
+- Imagen de Laura a la derecha, preferentemente `Laura_2.jpg`.
+- Imagen vertical integrada con shape/círculo/halo amarillo minimalista.
+- CTA centrado o debajo del texto.
+
+Diseño:
+
+- Mucho aire.
+- Texto en párrafos bien legibles.
+- Destacar en negrita:
+  - `El Coaching de Alto Impacto`
+  - `120 días`
+  - `"dueño-operario" a CEO`
+  - `funcione con o sin vos`
+
+Mobile:
+
+- Título arriba.
+- Texto.
+- Imagen debajo o entre bloques si queda mejor.
+- CTA centrado.
+
+---
+
+## 6. Cómo funciona
+
+Título:
+
+`¿CÓMO FUNCIONA?`
+
+Layout desktop recomendado:
+
+- Timeline vertical/diagonal premium.
+- 4 pasos alternados con imagen/card.
+- Cada paso con número enorme amarillo translúcido.
+- Usar cards o paneles horizontales.
+
+Pasos:
+
+1. `#1 Claridad y Dirección Estratégica`
+2. `#2 Liderazgo y Autonomía`
+3. `#3 Ejecución y Resultados Medibles`
+4. `#4 Expansión y Bienestar`
+
+Visual:
+
+- Se pueden usar duplicados estilizados de Laura_2 o abstracciones numeradas.
+- No hace falta tener 4 imágenes distintas reales.
+- Mejor usar cards con números grandes y fondos degradados.
+
+CTA después de los 4 pasos.
+
+Mobile:
+
+- Timeline vertical en 1 columna.
+- Número grande arriba/izquierda.
+- Texto legible.
+- Animaciones más suaves para performance.
+
+---
+
+## 7. Objetivos del programa
+
+Título:
+
+`¿CUÁLES SON LOS OBJETIVOS DE ESTE PROGRAMA?`
+
+Intro centrada.
+
+Layout desktop:
+
+- 3 cards en fila.
+- Cada card con número 1, 2, 3 enorme.
+- Título + texto.
+- Bordes amarillos finos.
+- Hover con glow, translateY y borde más intenso.
+
+Cards:
+
+1. Construir un Equipo Autónomo
+2. Sistemas para Soltar el Control
+3. Recuperar tu Tiempo
+
+CTA debajo.
+
+Mobile:
+
+- 1 columna.
+
+---
+
+## 8. Calendario
+
+ID de sección: `calendar`.
+
+Todos los botones deben scrollear a esta sección.
+
+Título:
+
+`Agendá tu llamada estratégica`
+
+Subtítulo:
+
+`Si tu negocio depende 100% de vos, si necesitás reorganizar tu proyecto, o si querés cambiar la forma en la que vivís y trabajás, llegaste al lugar indicado.`
+
+Layout desktop:
+
+- Card contenedora grande.
+- Columna izquierda con:
+  - Foto/avatar pequeño de Laura si queda bien.
+  - `30 min`
+  - Texto lateral.
+- Columna derecha con iframe del calendario.
+- Fondo preferentemente off-white con card blanca, o fondo oscuro con calendar card clara. Debe verse profesional.
+
+IMPORTANTE:
+
+No intentar cambiar internamente el iframe si no es posible por cross-origin. Diseñar muy bien el contenedor externo.
+
+---
+
+## 9. Soy Laura Sanchez
+
+Título:
+
+`SOY LAURA SANCHEZ`
+
+Layout desktop:
+
+- Imagen `Laura_2.jpg` a la izquierda.
+- Texto y bullets a la derecha.
+- Fondo claro o blanco.
+- Usar íconos circulares amarillos para bullets.
+
+Mobile:
+
+- Título.
+- Imagen.
+- Texto.
+- Bullets.
+- CTA.
+
+---
+
+## 10. FAQ
+
+Título:
+
+`PREGUNTAS FRECUENTES`
+
+Layout:
+
+- Fondo oscuro.
+- Acordeones con borde amarillo.
+- Al abrir, animar altura con CSS o GSAP.
+- Debe ser accesible: button, aria-expanded y contenido asociado.
+
+FAQ:
+
+Usar las 5 preguntas y respuestas del archivo de copy.
+
+---
+
+## 11. Footer
+
+Fondo oscuro.
+
+Contenido:
+
+- Wordmark: `Laura Sánchez Coach`.
+- Redes: LinkedIn, Facebook, Instagram.
+- Copyright: `© Copyright 2026. Laura Sanchez. All Rights Reserved.`
+
+Los íconos deben quedar centrados, con hover amarillo.

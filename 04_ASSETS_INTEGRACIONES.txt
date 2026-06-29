@@ -1,0 +1,236 @@
+# 04_ASSETS_INTEGRACIONES
+
+Este archivo define assets, rutas e integraciones.
+
+---
+
+# Assets disponibles
+
+El proyecto actual tiene esta estructura declarada:
+
+```txt
+/.claude
+/dist/assets/testimonials
+/dist/assets/laura
+```
+
+## Skills
+
+`/.claude` contiene skills que Claude puede leer para GSAP y buenas prácticas.
+
+Antes de implementar animaciones, revisar si existe:
+
+```txt
+.claude/skills/gsap-react/SKILL.md
+```
+
+o skills equivalentes.
+
+## Logos
+
+Carpeta:
+
+```txt
+/dist/assets/testimonials
+```
+
+Archivos:
+
+```txt
+logo_1.png
+logo_2.png
+...
+logo_26.png
+```
+
+Hay 26 logos de marca para el carrusel automático.
+
+IMPORTANTE:
+
+En Vite dev server, los assets dentro de `/dist` pueden no servirse correctamente si no están también en `public`.
+
+Primero inspeccionar el proyecto. Si los assets están solamente en `/dist/assets/...`, copiar SIN borrar los originales a:
+
+```txt
+/public/assets/testimonials/logo_1.png
+...
+/public/assets/testimonials/logo_26.png
+/public/assets/laura/Laura.jpg
+/public/assets/laura/Laura_2.jpg
+```
+
+Luego referenciar desde React como:
+
+```js
+"/assets/testimonials/logo_1.png"
+"/assets/laura/Laura.jpg"
+"/assets/laura/Laura_2.jpg"
+```
+
+No inventar nombres. Respetar mayúsculas:
+
+- `Laura.jpg`
+- `Laura_2.jpg`
+
+## Fotos de Laura
+
+Carpeta:
+
+```txt
+/dist/assets/laura
+```
+
+Archivos:
+
+```txt
+Laura.jpg
+Laura_2.jpg
+```
+
+Uso:
+
+- `Laura.jpg`: hero principal.
+- `Laura_2.jpg`: secciones internas, especialmente “Qué es...” o “Soy Laura Sanchez”.
+
+### Hero con Laura.jpg
+
+La foto `Laura.jpg` debe estar en el hero, a un costado.
+
+No agrandar deformando.
+
+No estirar.
+
+No forzar cover en todo el ancho.
+
+Recrear el fondo con CSS:
+
+- Hero background gris/grafito/off-white.
+- Colocar foto a la derecha.
+- Usar `object-fit: contain`.
+- Usar máscara/gradiente para integrar bordes.
+- Se puede usar `mix-blend-mode: luminosity` o filtros suaves si queda mejor, pero no arruinar la foto.
+
+### Laura_2.jpg
+
+Usarla como imagen vertical o retrato en una sección interna.
+
+Puede estar sobre un círculo/halo amarillo minimalista.
+
+---
+
+# Calendario embebido
+
+Código original:
+
+```html
+<iframe src="https://links.iqautomated.io/widget/booking/F5hf5skpjw7RN7blBQA9" style="width: 100%;border:none;overflow: hidden;" scrolling="no" id="F5hf5skpjw7RN7blBQA9_1782680831657"></iframe><br><script src="https://links.iqautomated.io/js/form_embed.js" type="text/javascript"></script>
+```
+
+Implementación en React recomendada:
+
+```jsx
+import { useEffect } from "react";
+
+function CalendarEmbed() {
+  useEffect(() => {
+    const src = "https://links.iqautomated.io/js/form_embed.js";
+    const existing = document.querySelector(`script[src="${src}"]`);
+    if (existing) return;
+
+    const script = document.createElement("script");
+    script.src = src;
+    script.type = "text/javascript";
+    script.async = true;
+    document.body.appendChild(script);
+  }, []);
+
+  return (
+    <iframe
+      src="https://links.iqautomated.io/widget/booking/F5hf5skpjw7RN7blBQA9"
+      style={{ width: "100%", border: "none", overflow: "hidden" }}
+      scrolling="no"
+      id="F5hf5skpjw7RN7blBQA9_1782680831657"
+      title="Calendario Laura Sánchez"
+      className="calendar-iframe"
+    />
+  );
+}
+```
+
+CSS sugerido:
+
+```css
+.calendar-iframe {
+  min-height: 780px;
+  border-radius: 18px;
+  background: #fff;
+}
+
+@media (max-width: 768px) {
+  .calendar-iframe {
+    min-height: 880px;
+  }
+}
+```
+
+No intentar modificar internamente estilos del iframe si el dominio no lo permite.
+
+---
+
+# Tracking externo
+
+Agregar este script al proyecto:
+
+```html
+<script 
+  src="https://links.iqautomated.io/js/external-tracking.js"
+  data-tracking-id="tk_174328ae3aba4e2bb84ed958e854a6e7">
+</script>
+```
+
+Dónde agregarlo:
+
+Preferentemente en `index.html`, antes del cierre de `</body>`.
+
+Si se carga desde React, hacerlo una sola vez con `useEffect`, pero mejor `index.html`.
+
+Validar que el script aparezca en el DOM.
+
+---
+
+# Redes sociales footer
+
+LinkedIn:
+https://www.linkedin.com/in/laurasanchezcoach/
+
+Facebook:
+https://www.facebook.com/people/Laura-Tu-Coach/61574003591803/
+
+Instagram:
+https://www.instagram.com/laura.tucoach/
+
+Iconos:
+
+- Usar SVG inline, lucide-react si existe, o texto accesible.
+- Hover amarillo.
+- Abrir en nueva pestaña: `target="_blank"` y `rel="noreferrer"`.
+
+---
+
+# SEO básico
+
+Agregar en `index.html`:
+
+Title:
+
+```txt
+Laura Sánchez Coach | Liderazgo Estratégico para Dueños
+```
+
+Meta description:
+
+```txt
+Coaching de Alto Impacto para dueños de negocio que quieren delegar mejor, crear equipos autónomos y recuperar tiempo sin frenar el crecimiento.
+```
+
+Open Graph básico si es rápido.

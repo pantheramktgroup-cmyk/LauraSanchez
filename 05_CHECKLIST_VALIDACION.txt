@@ -1,0 +1,103 @@
+# 05_CHECKLIST_VALIDACION
+
+Antes de finalizar, revisar todo esto.
+
+---
+
+# Funcional
+
+- [ ] La landing carga en `/`.
+- [ ] No hay rutas rotas.
+- [ ] Todos los botones `AGENDAR LLAMADA` hacen smooth scroll a la sección calendario.
+- [ ] El calendario se ve y carga.
+- [ ] El script de calendario `form_embed.js` se carga una sola vez.
+- [ ] El script de tracking externo está agregado.
+- [ ] Los 26 logos se muestran en el carrusel.
+- [ ] Las imágenes de Laura cargan correctamente:
+  - `Laura.jpg`
+  - `Laura_2.jpg`
+- [ ] No hay errores en consola.
+- [ ] No hay scroll horizontal.
+
+---
+
+# Diseño
+
+- [ ] La estética es premium, minimalista y ejecutiva.
+- [ ] El hero impacta mucho visualmente.
+- [ ] La foto de Laura se integra con el fondo y no se deforma.
+- [ ] El headline es legible y tiene destacados amarillos.
+- [ ] Los CTAs son muy visibles.
+- [ ] Las cards tienen hover.
+- [ ] Las secciones tienen buen espaciado.
+- [ ] El calendario no queda “tirado”; tiene un contenedor premium.
+- [ ] El footer se ve limpio.
+
+---
+
+# Animaciones
+
+- [ ] GSAP está implementado correctamente.
+- [ ] ScrollTrigger está registrado una sola vez.
+- [ ] Las entradas son notorias pero elegantes.
+- [ ] Los botones entran con rebote.
+- [ ] Cards y secciones tienen reveal.
+- [ ] El carrusel de logos es automático e infinito.
+- [ ] El efecto de luz del mouse funciona en desktop.
+- [ ] `prefers-reduced-motion` está respetado.
+- [ ] En mobile no hay animaciones que rompan performance.
+
+---
+
+# Responsive
+
+Desktop:
+
+- [ ] Hero ocupa la primera pantalla correctamente.
+- [ ] Logos se ven en una fila animada.
+- [ ] Stats en 4 columnas.
+- [ ] Situaciones en dos columnas.
+- [ ] Objetivos en 3 cards.
+- [ ] Calendario en 2 columnas.
+- [ ] FAQ con buen ancho.
+
+Tablet:
+
+- [ ] No hay elementos aplastados.
+- [ ] Cards se adaptan.
+
+Mobile:
+
+- [ ] Hero no corta texto.
+- [ ] Foto no tapa contenido.
+- [ ] Botones centrados y visibles.
+- [ ] Situaciones en una columna.
+- [ ] Objetivos en una columna.
+- [ ] Calendario usable.
+- [ ] FAQ legible.
+- [ ] No hay scroll horizontal.
+
+---
+
+# Copy
+
+- [ ] Se usó el copy completo de `01_COPY_LAURA_SANCHEZ.txt`.
+- [ ] No hay emojis.
+- [ ] No hay placeholders tipo lorem ipsum.
+- [ ] No hay textos hardcodeados innecesariamente en JSX.
+- [ ] El copy principal está centralizado en `src/content/lauraCopy.js`.
+
+---
+
+# Build
+
+Ejecutar:
+
+```bash
+npm run lint
+npm run build
+```
+
+No finalizar hasta que ambos pasen.
+
+Si `npm run lint` no existe, informar explícitamente y correr el chequeo disponible. Pero si existe, debe pasar.
