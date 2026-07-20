@@ -11,6 +11,23 @@ import { AboutLaura } from "./components/sections/AboutLaura.jsx";
 import { FAQ } from "./components/sections/FAQ.jsx";
 import { ThankYouPage } from "./components/pages/ThankYouPage.jsx";
 
+function getVariant() {
+  if (typeof window === "undefined") return "A";
+  const params = new URLSearchParams(window.location.search);
+  const forced = params.get("variant");
+  if (forced === "A" || forced === "B") {
+    localStorage.setItem("landing_variant", forced);
+    return forced;
+  }
+  const stored = localStorage.getItem("landing_variant");
+  if (stored === "A" || stored === "B") return stored;
+  const assigned = Math.random() < 0.5 ? "A" : "B";
+  localStorage.setItem("landing_variant", assigned);
+  return assigned;
+}
+
+const variant = getVariant();
+
 export default function App() {
   const pathname =
     typeof window !== "undefined"
@@ -29,18 +46,33 @@ export default function App() {
     return <ThankYouPage />;
   }
 
+  // Variante B: funnel corto
+  if (variant === "B") {
+    return (
+      <PageShell>
+        <Hero />
+        <LogoMarquee />
+        <CalendarSection variant={variant} />
+        <AboutLaura />
+        <Stats />
+        <FAQ />
+      </PageShell>
+    );
+  }
+
+  // Variante A: página completa — Stats movido debajo de Situations
   return (
     <PageShell>
       <Hero />
-      <Stats />
-      <Situations />
       <LogoMarquee />
+      <Situations />
+      <Stats />
       <div className="insight-block">
         <WhatIs />
         <HowItWorks />
       </div>
       <Objectives />
-      <CalendarSection />
+      <CalendarSection variant={variant} />
       <AboutLaura />
       <FAQ />
     </PageShell>

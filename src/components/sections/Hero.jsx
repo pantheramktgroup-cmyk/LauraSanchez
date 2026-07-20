@@ -13,36 +13,9 @@ export function Hero() {
 
   useGSAP(
     () => {
-      if (reduced) {
-        gsap.set("[data-hero]", { opacity: 1, x: 0, y: 0, scale: 1 });
-        return;
-      }
-
-      const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
-
-      tl.from(".hero__top", { opacity: 0, y: 14, duration: 0.55 })
-        .from(
-          ".hero__headline .hero__line",
-          {
-            opacity: 0,
-            y: 44,
-            clipPath: "inset(0 0 100% 0)",
-            duration: 0.75,
-            stagger: 0.08,
-          },
-          "-=0.15"
-        )
-        .from(".hero__sub", { opacity: 0, y: 22, duration: 0.6 }, "-=0.3")
-        .from(
-          ".hero__cta",
-          { opacity: 0, y: 18, duration: 0.75, ease: "back.out(1.5)" },
-          "-=0.22"
-        )
-        .from(
-          imageRef.current,
-          { opacity: 0, y: 14, scale: 0.99, duration: 0.9 },
-          "-=0.9"
-        );
+      // Hero carga completamente estático — sin animaciones de entrada.
+      // Solo parallax de scroll en desktop (no es animación de entrada).
+      if (reduced) return;
 
       const mm = gsap.matchMedia();
 
