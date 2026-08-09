@@ -14,6 +14,8 @@ export function AboutLaura() {
             className="about__image"
             src={aboutLaura.image}
             alt={aboutLaura.imageAlt}
+            width={3360}
+            height={5040}
             loading="lazy"
             decoding="async"
           />

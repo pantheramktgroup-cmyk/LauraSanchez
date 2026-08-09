@@ -278,6 +278,9 @@ export function Hero() {
             className="hero__image"
             src={hero.image}
             alt={hero.imageAlt}
+            width={2400}
+            height={1600}
+            loading="eager"
             fetchPriority="high"
             decoding="async"
             style={{

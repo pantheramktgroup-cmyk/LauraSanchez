@@ -9,7 +9,13 @@
       name="description"
       content="Coaching de Alto Impacto para dueños de negocio que quieren delegar mejor, crear equipos autónomos y recuperar tiempo sin frenar el crecimiento."
     />
+
+    <!-- Canonical -->
+    <link rel="canonical" href="https://laurasanchezcoach.com/" />
+
+    <!-- Open Graph -->
     <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://laurasanchezcoach.com/" />
     <meta
       property="og:title"
       content="Laura Sánchez Coach | Liderazgo Estratégico para Dueños"
@@ -18,33 +24,65 @@
       property="og:description"
       content="Coaching de Alto Impacto para dueños de negocio que quieren delegar mejor, crear equipos autónomos y recuperar tiempo sin frenar el crecimiento."
     />
-    <meta property="og:image" content="/assets/laura/Laura.png" />
+    <meta property="og:image" content="/assets/laura/Laura.webp" />
+    <meta property="og:image:width" content="2400" />
+    <meta property="og:image:height" content="1600" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Laura Sánchez Coach | Liderazgo Estratégico para Dueños" />
+    <meta
+      name="twitter:description"
+      content="Coaching de Alto Impacto para dueños de negocio que quieren delegar mejor, crear equipos autónomos y recuperar tiempo sin frenar el crecimiento."
+    />
+    <meta name="twitter:image" content="/assets/laura/Laura.webp" />
+
+    <!-- LCP: preload the hero image so the browser fetches it immediately -->
+    <link rel="preload" href="/assets/laura/Laura.webp" as="image" fetchpriority="high" />
+
+    <!-- Fonts: non-blocking load (display=swap already in URL) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
+      rel="preload"
       href="https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Montserrat:wght@400;500;600;700;800&display=swap"
-      rel="stylesheet"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
     />
-    <!-- Microsoft Clarity -->
-    <script type="text/javascript">
-      (function(c,l,a,r,i,t,y){
-        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-      })(window, document, "clarity", "script", "x441uyqwfh");
-    </script>
-    <!-- Meta Pixel -->
+    <noscript>
+      <link
+        href="https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Montserrat:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+      />
+    </noscript>
+
+    <!-- Microsoft Clarity: stub is synchronous; script injection deferred to idle -->
     <script>
-      !function(f,b,e,v,n,t,s)
-      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-      n.queue=[];t=b.createElement(e);t.async=!0;
-      t.src=v;s=b.getElementsByTagName(e)[0];
-      s.parentNode.insertBefore(t,s)}(window, document,'script',
-      'https://connect.facebook.net/en_US/fbevents.js');
-      fbq('init', '1746555165995490');
-      fbq('track', 'PageView');
+      (function(c,l,a,r,i){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        var load=function(){
+          var t=l.createElement(r),y=l.getElementsByTagName(r)[0];
+          t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+          y.parentNode.insertBefore(t,y);
+        };
+        if(typeof requestIdleCallback!=="undefined"){requestIdleCallback(load)}else{setTimeout(load,500)}
+      })(window,document,"clarity","script","x441uyqwfh");
+    </script>
+
+    <!-- Meta Pixel: stub synchronous, fbevents.js injection deferred to idle -->
+    <script>
+      !function(f,b,e,v,n,t,s){
+        if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version="2.0";n.queue=[];
+        var load=function(){
+          t=b.createElement(e);t.async=!0;t.src=v;
+          s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s);
+        };
+        if(typeof requestIdleCallback!=="undefined"){requestIdleCallback(load)}else{setTimeout(load,500)}
+      }(window,document,"script","https://connect.facebook.net/en_US/fbevents.js");
+      fbq("init","1746555165995490");
+      fbq("track","PageView");
     </script>
   </head>
   <body>
@@ -53,11 +91,20 @@
     /></noscript>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
+    <!-- Third-party tracking: deferred so they don't block interactivity -->
     <script
       src="https://links.iqautomated.io/js/external-tracking.js"
       data-tracking-id="tk_174328ae3aba4e2bb84ed958e854a6e7"
+      defer
     ></script>
-    <!-- Metricool -->
-    <script>function loadScript(a){var b=document.getElementsByTagName("head")[0],c=document.createElement("script");c.type="text/javascript",c.src="https://tracker.metricool.com/resources/be.js",c.onreadystatechange=a,c.onload=a,b.appendChild(c)}loadScript(function(){beTracker.t({hash:"c2cbce573ce2a91f17ad0e8ce94bf7dc"})});</script>
+    <!-- Metricool: deferred to avoid blocking -->
+    <script>
+      window.addEventListener("load",function(){
+        var b=document.getElementsByTagName("head")[0],c=document.createElement("script");
+        c.type="text/javascript";c.src="https://tracker.metricool.com/resources/be.js";
+        c.onreadystatechange=c.onload=function(){beTracker.t({hash:"c2cbce573ce2a91f17ad0e8ce94bf7dc"})};
+        b.appendChild(c);
+      });
+    </script>
   </body>
 </html>

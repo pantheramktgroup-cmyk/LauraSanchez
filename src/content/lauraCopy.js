@@ -26,14 +26,14 @@ export const hero = {
   subheadline:
     "Aprende a delegar con eficacia, desarrolla equipos de alto rendimiento y libera tu agenda para centrarte en la estrategia que realmente hace crecer tu empresa.",
   microcopy: "Diagnóstico estratégico · 30 min · Sin cargo",
-  image: "/assets/laura/Laura.png",
+  image: "/assets/laura/Laura.webp",
   imageAlt: "Laura Sánchez, coach de liderazgo estratégico para dueños de negocio",
 };
 
 export const logos = {
   caption: "Empresas y líderes que confiaron en el proceso",
   items: Array.from({ length: 26 }, (_, i) => ({
-    src: `/assets/testimonials/logo_${i + 1}.png`,
+    src: `/assets/testimonials/logo_${i + 1}.webp`,
     alt: `Logo de empresa cliente ${i + 1}`,
   })),
 };
@@ -68,7 +68,7 @@ export const situations = {
 
 export const whatIs = {
   title: "¿QUÉ ES EL COACHING DE ALTO IMPACTO?",
-  image: "/assets/laura/Laura_2.jpg",
+  image: "/assets/laura/Laura_2.webp",
   imageAlt: "Laura Sánchez durante una sesión de coaching ejecutivo",
   // Paragraphs as arrays of segments to allow bold emphasis without HTML in copy.
   paragraphs: [
@@ -179,7 +179,7 @@ export const calendar = {
     "Si tu negocio depende 100% de vos, si necesitas reorganizar tu proyecto, o si querés cambiar la forma en la que vivís y trabajas, llegaste al lugar indicado.",
     "Trabajamos para que emprendedores y empresarios vivan como realmente anhelan vivir.",
   ],
-  avatar: "/assets/laura/Laura_2.jpg",
+  avatar: "/assets/laura/Laura_2.webp",
   avatarAlt: "Laura Sánchez",
   iframeSrc: "https://links.iqautomated.io/widget/booking/F5hf5skpjw7RN7blBQA9",
   iframeId: "F5hf5skpjw7RN7blBQA9_1782680831657",
@@ -188,7 +188,7 @@ export const calendar = {
 
 export const aboutLaura = {
   title: "SOY LAURA SANCHEZ",
-  image: "/assets/laura/Laura_3.jpg",
+  image: "/assets/laura/Laura_3.webp",
   imageAlt: "Retrato de Laura Sánchez, coach de liderazgo",
   paragraphs: [
     "Después de dejar mi carrera corporativa, dediqué mi misión a una sola cosa: Ayudar a empresarios y ejecutivos a transformar su liderazgo para que recuperen su activo más valioso: El tiempo.",

@@ -38,6 +38,7 @@ export function CalendarSection({ variant = "A" }) {
               scrolling="yes"
               id={calendar.iframeId}
               title="Calendario Laura Sánchez"
+              loading="lazy"
               className="calendar-iframe"
             />
           </div>
