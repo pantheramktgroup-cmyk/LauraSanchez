@@ -36,8 +36,6 @@ export function WhatIs() {
             className="what-is__image"
             src={whatIs.image}
             alt={whatIs.imageAlt}
-            width={3360}
-            height={5040}
             loading="lazy"
             decoding="async"
           />
